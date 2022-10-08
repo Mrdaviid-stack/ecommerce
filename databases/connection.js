@@ -1,6 +1,6 @@
 import { knex } from 'knex'
 
-export const db = knex({
+export const DB = knex({
   client: process.env.DB_CLIENT,
   connection: {
     host: process.env.DB_HOST,

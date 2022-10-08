@@ -1,6 +1,7 @@
 import { db } from '../../../databases/connection'
+import { Model } from '../../../databases/BaseModel'
 
-export const AuthModels = new class {
+export class AuthModel extends Model {
 
   constructor() {
 
@@ -13,8 +14,15 @@ export const AuthModels = new class {
       token: 'user_refresh_token'
     }
 
-    this.fields = fields
-    this.table = 'users'
+    super(
+    {
+      table: 'users',
+      primaryKey: fields.uuid,
+      singularName: 'user',
+      defaultOrderByColumn: fields.id,
+    });
+  
+    this.fields = fields;
 
   }
 
